@@ -12,7 +12,7 @@ function fightPayRun(input){
     colorPrompt("You're fighting the troll.", "red")
   }
 }
-function colorPrompt(prompt, color = "green"){
+function colorPrompt(prompt, color = "blue"){
   return console.log(chalk[color](prompt))
 }
 const getPrompt = () => {
