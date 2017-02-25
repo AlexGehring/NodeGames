@@ -27,14 +27,31 @@ const getPrompt = () => {
 function fightPayRun(input){
   switch (input){
     case 'fight':
-    colorPrompt("You're fighting the troll.", "red");
-    var strong = rl.question("Are you strong? Yes or No", (userInput) => {
-      let input = userInput.toLowerCase().trim()
-      fightPayRun(input)
-    });
-
+    colorPrompt("You're fighting the Troll!", "red")
+    rl.question("This looks like an uneaven match, are you strong? Yes or No", (userInput) => {
+      let strong = userInput.toLowerCase().trim()
+      if (strong === 'yes'){
+        rl.question("That's great, but are you smart?", (userInput) => {
+          let smart = userInput.toLowerCase().trim()
+          if (smart === 'yes'){
+            colorPrompt("You've defeated the Troll! Nice Job!", "yellow")
+          }else{
+            colorPrompt("You only needed one of the two to win! You did it!", "yellow")
+          }
+        })
+      }else{
+        rl.question("That's too bad, but are you smart?", (userInput) => {
+          let smart = userInput.lowerCase().trim()
+          if(smart === 'yes'){
+            colorPrompt("You did it! You out smarted the beast!", "yellow")
+          } else {
+            colorPrompt("No smarts and no strength? You lose!", "Red")
+          }
+        })
+      }
+    })
   }
-}
 
+}
 
 getPrompt();
