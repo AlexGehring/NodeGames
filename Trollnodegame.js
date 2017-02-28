@@ -45,10 +45,10 @@ function fightPayRun(input){
           if(smart === 'yes'){
             colorPrompt("You did it! You out smarted the beast!", "yellow")
           } else {
-            colorPrompt("No smarts and no strength? You lose!", "Red")
+            colorPrompt("No smarts and no strength? You lose!", "red")
           }
         })
-      } 
+      }
     })
     break;
     case 'pay':
@@ -70,7 +70,32 @@ function fightPayRun(input){
           if(jewels === 'yes'){
             colorPrompt("You did it! Trolls are greedy and will take your jewels as trade!", "yellow")
           } else {
-            colorPrompt("No money or jewels!? You lose!", "Red")
+            colorPrompt("No money or jewels!? You lose!", "red")
+          }
+        })
+      }
+    })
+    break;
+    case 'run':
+    colorPrompt("OK- you're running from the troll!", "red")
+    rl.question("Are you fast? Yes or No", (userInput) => {
+      let fast = userInput.toLowerCase().trim()
+      if (fast === 'yes'){
+        rl.question("That's great, did you get a head start? Yes or No", (userInput) => {
+          let headStart = userInput.toLowerCase().trim()
+          if (headStart === 'yes'){
+            colorPrompt("You got away - barely!", "yellow")
+          }else{
+            colorPrompt("Without a headstart you are no match!\nCongrats on being Troll lunch!", "yellow")
+          }
+        })
+      }else{
+        rl.question("You don't need to be fast...are you good at hiding? Yes or No", (userInput) => {
+          let hide = userInput.toLowerCase().trim()
+          if(hide === 'yes'){
+            colorPrompt("Your camouflaging ways have saved you this time! ", "yellow")
+          } else {
+            colorPrompt("Why on earth would you decide to run!? You're lunch!", "red")
           }
         })
       }
