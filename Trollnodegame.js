@@ -100,6 +100,9 @@ function fightPayRun(input){
         })
       }
     })
+    default:
+    colorPrompt("You're just asking to be Troll lunch- try again!", "magenta")
+    getPrompt();
   }
 
 }
