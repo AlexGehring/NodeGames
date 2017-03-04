@@ -19,7 +19,7 @@ const getPrompt = () => {
 
 
 
-  colorPrompt("Your reputation precedes you, i've heard you've battled\nthe most fearsome creatures in this land\nand now you've decided to test yourself\nagainst the dragon.", "green")
+  colorPrompt("Your reputation precedes you, i heard you've battled\nthe most fearsome creatures in this land\nand now you've decided to test yourself\nagainst the dragon.", "cyan")
   rl.question("...are you prepared for battle? Yes or No", (userInput) => {
       let input = userInput.toLowerCase().trim()
       fightPayRun(input)
@@ -36,17 +36,17 @@ function fightPayRun(input){
     case 'yes':
     while (slaying) {
       if (youHit) {
-        colorPrompt("You hit the dragon and did " + damageThisRound + " damage!", "magenta");
+        colorPrompt("You hit the dragon " + damageThisRound + " times!", "magenta");
         totalDamage += damageThisRound;
 
         if (totalDamage >= 4) {
-          colorPrompt("You did it! You slew the dragon!", "yellow");
+          colorPrompt("That was enough to slay the dragon! You will live to slay again!", "yellow");
           slaying = false;
         } else {
           youHit = Math.floor(Math.random() * 2);
         }
       } else {
-        colorPrompt("The dragon burninates you! You're toast.", "red");
+        colorPrompt("You're no match for the Dragon! You're toast!", "red");
         slaying = false;
       }
     }
