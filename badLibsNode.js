@@ -28,57 +28,86 @@ const getPrompt = () => {
 }
 
 function playMyGame(input){
-  switch (input){
-    case 'yes':
-        rl.question("Type an adverb of your choice:", (userInput) => {
-          let adverb = userInput.toLowerCase().trim()
-          if (adverb){
-            colorPrompt ("You chose the adverb: " + adverb, "red");
-            rl.question("Type a noun of your choice:", (userInput) => {
-              let noun = userInput.toLowerCase().trim()
-              if (noun){
-                colorPrompt("You chose the noun: " + noun, "red");
-                rl.question("Type a verb in the present tense:", (userInput) => {
-                  let verbPresent = userInput.toLowerCase().trim()
-                  if (verbPresent){
-                    colorPrompt("You chose the verb: " + verbPresent, "red");
-                    rl.question("Type a plural noun:", (userInput) => {
-                      let pluralNoun = userInput.toLowerCase().trim()
-                      if (pluralNoun){
-                        colorPrompt("you chose the noun: " + pluralNoun, "red");
-                        rl.question("Type a verb in the past tense:", (userInput) => {
-                          let verbPast = userInput.toLowerCase().trim()
-                          if (verbPast){
-                            colorPrompt("You chose the verb: " + verbPast, "red");
+  if (input === 'yes'){
+        rl.question("Type your name:", (userInput) => {
+          let name = userInput.toLowerCase().trim()
+          if (name){
+            colorPrompt ("You chose the name: " + name, "red");
+            rl.question("Type a verb of your choice:", (userInput) => {
+              let verb = userInput.toLowerCase().trim()
+              if (verb){
+                colorPrompt("You chose the verb: " + verb, "red");
+                rl.question("Type a noun of your choice:", (userInput) => {
+                  let noun = userInput.toLowerCase().trim()
+                  if (noun){
+                    colorPrompt("You chose the noun: " + noun, "red");
+                    rl.question("Type another verb:", (userInput) => {
+                      let verbTwo = userInput.toLowerCase().trim()
+                      if (verbTwo){
+                        colorPrompt("you chose the verb: " + verbTwo, "red");
+                        rl.question("Type another noun:", (userInput) => {
+                          let nounTwo = userInput.toLowerCase().trim()
+                          if (nounTwo){
+                            colorPrompt("You chose the noun: " + nounTwo, "red");
+                            rl.question("Type yet another noun: ", (userInput) => {
+                              let nounThree = userInput.toLowerCase().trim()
+                              if (nounThree){
+                                colorPrompt("You chose the noun: " + nounThree, "red");
+                                rl.question("Type a verb ending in 'ing': ", (userInput) => {
+                                  let verbIng = userInput.toLowerCase().trim()
+                                  if (verbIng) {
+                                    colorPrompt("You chose the verb: " + verbIng, "red");
+                                    rl.question("Type a past tense verb: ", (userInput) => {
+                                      let pastVerb = userInput.toLowerCase().trim()
+                                      if (pastVerb) {
+                                        colorPrompt( name+"'s daily routine. Every morning when i wake up i head to the bathroom to " +verb+ " my " +noun+". After that i " +verbTwo+ " up some breakfast. I like to eat eggs and " +nounTwo+", and can't forget a steaming hot cup of " +nounThree +"! When i'm done " +verbIng+", it's time to get " +pastVerb+"." , "magenta");
+
+                                      } else {
+                                        colorPrompt("You did not type a past tense verb", "red");
+                                      }
+                                    })
+
+                                  } else {
+                                    colorPrompt("You did not type a verb ending in ing", "red");
+                                  }
+                                })
+
+
+                              } else {
+                                colorPrompt("You did not type a third noun.", "red");
+                              }
+                            })
 
                           } else {
-                            colorPrompt ("You didnt enter a past tense verb.")
+                            colorPrompt ("You didnt enter a second noun.", "red")
                           }
                         })
                       } else {
-                        colorPrompt ("you didnt enter a noun.")
+                        colorPrompt ("you didnt enter a verb.", "red")
                       }
                     });
 
 
                   }else {
-                    colorPrompt("you didnt enter a verb")
+                    colorPrompt("you didnt enter a noun", "red")
                   }
                 })
               } else {
-                colorPrompt("you didnt enter a noun", "red");
+                colorPrompt("you didnt enter a verb", "red");
               }
             })
           }else {
-            colorPrompt("you didnt enter an adverb", "red")
+            colorPrompt("you didnt enter a name", "red")
           }
         });
 
-    default:
-    colorPrompt("Let's try that again...", "magenta")
+
+  } else {
+    colorPrompt("let's try that again.", "magenta")
     getPrompt();
   }
-
 }
+
+
 
 getPrompt();
