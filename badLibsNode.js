@@ -19,7 +19,7 @@ const getPrompt = () => {
 
 
 
-  colorPrompt("Welcome to Bad-Libs, my bad version of Mad-Libs! ", "cyan")
+  colorPrompt("Welcome to Bad-Libs, my very bad version of Mad-Libs! ", "cyan")
   rl.question("If you've brushed up on your nouns, verbs and adjectives, type 'yes' to continue!", (userInput) => {
       let input = userInput.toLowerCase().trim()
       playMyGame(input)
