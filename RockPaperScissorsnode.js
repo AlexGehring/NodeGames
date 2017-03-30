@@ -37,7 +37,7 @@ function rockPaperScissors(input){
   	computerChoice = "scissors";
   } colorPrompt("Computer: " + computerChoice, "yellow");
 
-  if (input == computerChoice){
+  if (input === computerChoice){
     colorPrompt("The result is a tie! Try again!", "red");
     getPrompt();
   } else if (input === "rock"){
@@ -49,22 +49,23 @@ function rockPaperScissors(input){
       getPrompt();
     }
   }
-  if(input === "paper"){
+  else if(input === "paper"){
     if(computerChoice === "rock"){
       colorPrompt("Paper vs. Rock means you win!", "magenta");
       getPrompt();
     } else {
       colorPrompt("Paper vs. Scissors means computer wins!", "magenta");
-
+      getPrompt();
     }
   }
-  if(input === "scissors"){
+  else if(input === "scissors"){
     if(computerChoice === "rock"){
       colorPrompt("Scissors vs. Rock means computer wins!", "magenta");
+      getPrompt();
 
     } else {
       colorPrompt("Scissors vs. Paper means you win!", "magenta");
-
+      getPrompt();
     }
   }
 
